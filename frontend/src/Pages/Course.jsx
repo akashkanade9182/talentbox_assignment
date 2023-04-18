@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Text, Heading } from '@chakra-ui/react'
+import { Box, Button,Image, Text, Heading } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../Redux/AppReducer/action'
 
@@ -55,6 +55,7 @@ const icons=[
 ]
 const Course = () => {
      const data = useSelector(store => store.AppReducer.data);
+     const isLoading=useSelector(store=>store.AppReducer.isLoading)
      const dispatch = useDispatch();
 
      useEffect(() => {
@@ -72,8 +73,10 @@ const Course = () => {
                     <Text fontStyle={"italic"}>- Thomas A. Edison</Text>
                     <Box w="100%" >
                          {
-                              data && data.map((ele,index) => (
-                                   <Box p="0 20px" borderRadius={"7px"} h="70px" mt="20px"  boxShadow= "rgba(0, 0, 0, 0.35) 0px 5px 15px" display="flex" alignItems={"center"} border="1px solid #000">
+                           isLoading?<Box w="40%" m="auto" mt="100px" display="flex" justifyContent={"space-around"} alignItems={"center"}>
+                              <Image src="https://i.gifer.com/VAyR.gif" alt=""/>
+                              </Box>: data && data.map((ele,index) => (
+                                  <Box p="0 20px" borderRadius={"7px"} h="70px" mt="20px"  boxShadow= "rgba(0, 0, 0, 0.35) 0px 5px 15px" display="flex" alignItems={"center"} border="1px solid #000">
                                         {icons[index]}
                                         <Text ml="20px" fontSize={"20px"}>{ele.title +  "("+ele.duration +")"}</Text>
                                    </Box>

@@ -2,7 +2,9 @@ import React from 'react'
 import { Box } from "@chakra-ui/react"
 import "./Navbar.css"
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 const Navbar = () => {
+  const isAuth=useSelector(store=>store.AuthReducer.isAuth)
 
   const navigate=useNavigate()
 
@@ -23,7 +25,7 @@ const Navbar = () => {
       </Box>
       <Box w={["95%","95%","fit-content","fit-content"]}  display="flex" justifyContent={"space-between"} alignItems={"center"}>
         <button style={{ backgroundColor: "transparent", height: "40px", padding: "0px 10px", color: "white", fontSize: "20px", border: "1px solid white" }}>Menu</button>
-        <button onClick={()=>navigate("/signin")} style={{ backgroundColor: "#fec849",marginLeft:"15px", height: "40px", padding: "0px 10px", fontSize: "20px" }}>Signin</button>
+        <button  onClick={()=>navigate("/signin")} style={{ backgroundColor: "#fec849",marginLeft:"15px", height: "40px", padding: "0px 10px", fontSize: "20px",display:!isAuth?"flex":"none" }}>Signin</button>
       </Box>
     </Box>
   )

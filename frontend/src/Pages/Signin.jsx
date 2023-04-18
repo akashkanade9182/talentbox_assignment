@@ -58,10 +58,14 @@ function initClient() {
                          <label style={{fontSize:"20px",fontWeight:"bold"}}  htmlFor="">Password</label><br />
                          <input onChange={(e)=>setPassword(e.target.value)} value={password} className="forminput" type="password" />
                     </Box>
-                    <button onClick={handleSubmit} className='signinbtn' style={{marginTop:"20px", backgroundColor: "#fec849",border:"1px solid black",fontWeight:"bold", height: "40px", padding: "0px 10px", fontSize: "20px" }}>Singin</button>
-<hr/>
-<Log/>
-<Logout/>
+       
+             <Box w="90%" mt="20px" display={"flex"} justifyContent={"space-around"}>
+             <button onClick={handleSubmit} className='signinbtn' style={{ backgroundColor: "#fec849",border:"1px solid black",fontWeight:"bold", height: "40px", padding: "0px 10px", fontSize: "20px" }}>Singin</button>
+
+               <Log/>
+                    </Box>
+
+
 
 
 

@@ -38,6 +38,16 @@ const reducer = (state = initialState, action) => {
         token: "",
 
       }
+      case types.GET_GOOGLE_SUCCESS:
+        return {
+          ...state,
+          isLoading: false,
+          isAuth: true,
+          token: payload,
+      
+          isError: false
+  
+        };
    
     default: return state;
   }

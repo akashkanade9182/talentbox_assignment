@@ -6,9 +6,7 @@ const postData=(payload,navigate)=>(dispatch)=>{
 dispatch({type:types.LOGIN_REQUEST})
   return axios.post("https://odd-ruby-angelfish-wear.cyclic.app/signin",payload).then((r)=>{
     dispatch({type:types.LOGIN_SUCCESS,payload:r.data.token})
-    let logindata={auth:true,token:r.data.token}
   
-   localStorage.setItem("jwt",JSON.stringify(logindata))
    navigate("/course")
  
   
@@ -19,4 +17,16 @@ dispatch({type:types.LOGIN_REQUEST})
   })
 }
 
-export {postData}
+const googleLog=(payload,navigate)=>(dispatch)=>{
+      dispatch({type:types.GET_GOOGLE_SUCCESS,payload:payload})
+    
+     navigate("/course")
+   
+    
+
+   
+   
+  }
+
+
+export {postData,googleLog}

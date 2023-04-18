@@ -1,0 +1,15 @@
+
+.forminput{
+     width: 100%;
+   background-color:transparent;
+   color:black;
+   outline:0  ;
+   font-size: 20px;
+   border-bottom: 1px solid black;
+}
+.signinbtn{
+     border-radius: 10px;
+}
+.signinbtn:hover{
+transform: scale(1.1);
+}
